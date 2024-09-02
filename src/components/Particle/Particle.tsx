@@ -1,5 +1,4 @@
 import React from "react";
-import "./Particle.css";
 const particle = () => {
   return (
     <div id="container">
