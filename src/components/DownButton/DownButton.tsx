@@ -29,14 +29,12 @@ const DownwardButton: React.FC = () => {
   return (
     <div
       onClick={handleClick}
-      className={`downward-button-container text-center ease-in-out cursor-pointer animate-bounce ${
+      className={`downward-button-container flex justify-center items-center text-center ease-in-out cursor-pointer animate-bounce ${
         isClicked ? "rotate-180" : ""
       } ${shouldHide ? "hidden" : ""}`}
     >
       <ChevronDownIcon
-        className={`h-6 w-6 text-blue-300 transform transition-transform ${
-          isClicked ? "-rotate-90" : "rotate-0"
-        }`}
+        className={`h-6 w-6 text-blue-300 transform transition-transform`}
       />
     </div>
   );
