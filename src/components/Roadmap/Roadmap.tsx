@@ -73,7 +73,7 @@ const Roadmap = () => {
   };
 
   return (
-    <div className="p-8 bg-primary text-white">
+    <div className="p-8 bg-primary text-white" id="roadmap">
       <h2 className="text-3xl font-bold mb-8 text-center">
         Experience Roadmap
       </h2>

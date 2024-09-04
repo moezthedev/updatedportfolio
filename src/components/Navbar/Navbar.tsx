@@ -109,12 +109,12 @@ const Navbar = () => {
           </li>
           <li>
             <ScrollLink
-              to="services"
+              to="roadmap"
               smooth={true}
               offset={-100}
               className="hover:text-gray-400 cursor-pointer"
             >
-              Services
+              Roadmap
             </ScrollLink>
           </li>
           <li>
@@ -158,11 +158,11 @@ const Navbar = () => {
             <li className="border-b-2 border-gray-700/70 p-6 text-xl font-semibold text-white hover:text-gray-400">
               <ScrollLink
                 onClick={toggleMenu}
-                to="services"
+                to="roadmap"
                 smooth={true}
                 offset={-100}
               >
-                Services
+                Roadmap
               </ScrollLink>
             </li>
             <li className="border-b-2 border-gray-700/70 p-6 text-xl font-semibold text-white hover:text-gray-400">
