@@ -45,7 +45,7 @@ const Skills = () => {
       <h1 className="text-white font-bold pb-8 pt-4 text-5xl pl-2 text-center">
         Skills
       </h1>
-      <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-6 pb-8">
         {Object.keys(techLogos).map((tech) => (
           <div
             key={tech}
