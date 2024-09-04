@@ -41,7 +41,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="p-8 bg-gradient-to-r from-primary to-secondary">
+    <div className="p-8 bg-gradient-to-r from-primary to-secondary" id="skills">
       <h1 className="text-white font-bold pb-8 pt-4 text-5xl pl-2 text-center">
         Skills
       </h1>
