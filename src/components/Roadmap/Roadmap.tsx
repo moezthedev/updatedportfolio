@@ -12,12 +12,6 @@ const Roadmap = () => {
   const milestones = [
     {
       title: "DoDAO",
-      description: "Associate Full Stack Software Engineer ",
-      date: "Sep 2024 - Present",
-      image: DoDAO, // Add image path
-    },
-    {
-      title: "DoDAO",
       description: "FullStack Software Engineer Intern",
       date: "June 2024 - Aug 2024",
       image: DoDAO, // Add image path
