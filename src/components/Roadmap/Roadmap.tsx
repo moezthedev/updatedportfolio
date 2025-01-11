@@ -7,9 +7,16 @@ import Comppec from "@/app/assets/comppec_resized.jpg";
 import Risetech from "@/app/assets/risetech.png";
 import Interns from "@/app/assets/interns.png";
 import Synapsify from "@/app/assets/synapsify.jpg";
+import Enqaurie from "@/app/assets/logo-enquire.png";
 import Image from "next/image";
 const Roadmap = () => {
   const milestones = [
+    {
+      title: "Enquaire",
+      description: "FullStack Software Engineer",
+      date: "October 2024 - Present",
+      image: Enqaurie, // Add image path
+    },
     {
       title: "DoDAO",
       description: "FullStack Software Engineer Intern",
