@@ -42,7 +42,7 @@ const ShowcaseProjects: React.FC = () => {
           Full Stack
         </button>
       </div>
-      <div className="grid bg-opacity-100 bg-gradient-to-t from-tertiary via-secondary to-primary grid-cols-1 md:grid-cols-2 p-4 md:p-12 lg:grid-cols-3 gap-4 md:gap-8">
+      <div className="grid bg-opacity-100 bg-gradient-to-t from-tertiary via-secondary to-primary grid-cols-1 md:grid-cols-2 p-8 md:p-12 lg:grid-cols-3 gap-4 md:gap-8">
         {filteredProjects.map((project, index) => (
           <motion.div
             key={index}
@@ -55,7 +55,7 @@ const ShowcaseProjects: React.FC = () => {
               transition: { duration: 1, ease: "easeIn" },
             }}
           >
-            <div className="relative w-full h-64">
+            <div className="relative w-full h-60">
               <Image
                 src={project.imageUrl.src}
                 alt={project.title}
@@ -94,11 +94,11 @@ const ShowcaseProjects: React.FC = () => {
                 {project.category === "ML" && project.colabLink && (
                   <a
                     href={project.colabLink}
-                    className="ml-4 text-blue-500 hover:font-bold text-center"
+                    className="mt-auto text-blue-500 hover:font-bold text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View on Colab
+                    View
                   </a>
                 )}
 

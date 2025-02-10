@@ -14,6 +14,12 @@ import Movies from "@/app/assets/movies.jpg";
 import Spam from "@/app/assets/email.png";
 import Customer from "@/app/assets/customer.png";
 import MNIST from "@/app/assets/mnist.png";
+import Emotion from "@/app/assets/emotion.png";
+import Ship from "@/app/assets/ship.jpg";
+import Skin from "@/app/assets/skin.png";
+import Eye from "@/app/assets/eye.png";
+import Painter from "@/app/assets/painter.jpg";
+import Lung from "@/app/assets/lung.jpg";
 import { StaticImageData } from "next/image";
 
 interface Project {
@@ -109,9 +115,67 @@ const projects: Project[] = [
     category: "Full Stack",
   },
   {
+    title: "Skin Cancer Segmentation Using Vision Transformers",
+    imageUrl: Skin,
+    technologies: ["Vision Transformers"],
+    description:
+      "Skin cancer segmentation using Vision Transformers (ViTs) leverages self-attention mechanisms to accurately detect and outline cancerous regions in dermoscopic images",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/vit-encoder-only-skin-cancer-segmentation",
+    category: "ML",
+  },
+  {
+    title: "Ships Detection in Satellite Imagery using RCNN",
+    imageUrl: Ship,
+    technologies: ["RCNN"],
+    description:
+      "Ship detection in satellite imagery using Region-Based Convolutional Neural Networks (R-CNN) enables precise identification and localization of vessels in vast ocean areas. R-CNN extracts region proposals, classifies ships, and refines bounding boxes, improving maritime surveillance, illegal fishing monitoring, and naval security with high accuracy and robustness in varying weather conditions.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/ships-detection-in-satellite-imagery?scriptVersionId=219636432",
+    category: "ML",
+  },
+  {
+    title: "I am something of a painter myself competition using GANs",
+    imageUrl: Painter,
+    technologies: ["GANs"],
+    description:
+      "I Am Something of a Painter Myself competition using Generative Adversarial Networks (GANs) explores AI-generated art. GANs train on diverse artworks, creating original paintings that mimic human creativity.This competition showcases AI's potential in art, blurring boundaries between human and machine creativity while fostering innovation in computational aesthetic",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/gan-i-am-something-of-a-painter-myself",
+    category: "ML",
+  },
+  {
+    title: "Eye Disease Detection using CNNs",
+    imageUrl: Eye,
+    technologies: ["CNN"],
+    description:
+      "Eye Disease Detection using Convolutional Neural Networks (CNNs) leverages deep learning to analyze retinal images and identify diseases like glaucoma, diabetic retinopathy, and cataracts. The model extracts features from medical images, improving early diagnosis and accuracy. This AI-powered approach aids ophthalmologists in providing faster and more reliable treatments.",
+    colabLink: "https://www.kaggle.com/code/moezahsan1/eye-disease-detection",
+    category: "ML",
+  },
+  {
+    title: "Emotion Detection using GRU",
+    imageUrl: Emotion,
+    technologies: ["GRU", "NLP"],
+    description:
+      "NLP Emotion Detection uses Natural Language Processing (NLP) and machine learning to analyze text and identify emotions like joy, anger, sadness, and fear. By leveraging sentiment analysis, deep learning models, and linguistic features, it enables applications in customer feedback analysis, mental health monitoring, and human-computer interaction for better emotional intelligence.",
+    colabLink: "https://www.kaggle.com/code/moezahsan1/nlp-emotion-detection",
+    category: "ML",
+  },
+  {
+    title: "Lung Cancer Detection using CNNs",
+    imageUrl: Lung,
+    technologies: ["CNN"],
+    description:
+      "Lung Cancer Detection using Convolutional Neural Networks (CNNs) applies deep learning to analyze CT scans and detect malignant tumors with high accuracy. The model extracts critical features from medical images, aiding early diagnosis and reducing false positives. This AI-driven approach enhances radiologists' efficiency, improving patient outcomes through timely intervention.",
+    colabLink: "https://github.com/moezthedev/lung-cancer-detection",
+    category: "ML",
+  },
+
+  {
     title: "Plant Disease Detection",
     imageUrl: Plant,
-    technologies: ["Numpy", "Tensorflow", "CNN"],
+    technologies: ["Tensorflow", "CNN"],
     description:
       "A machine learning model for detecting and diagnosing plant diseases from images using Convolutional Neural Networks (CNN).",
     colabLink:
@@ -121,7 +185,7 @@ const projects: Project[] = [
   {
     title: "Face Mask Detection",
     imageUrl: Mask,
-    technologies: ["Numpy", "Tensorflow", "CNN"],
+    technologies: ["Tensorflow", "CNN"],
     description:
       "A machine learning model for detecting whether individuals are wearing face masks correctly in images using Convolutional Neural Networks (CNN).",
     colabLink:
@@ -131,7 +195,7 @@ const projects: Project[] = [
   {
     title: "MNIST Digit Recognition Using Neural Networks",
     imageUrl: MNIST,
-    technologies: ["Numpy", "Tensorflow", "CNN"],
+    technologies: ["Tensorflow", "CNN"],
     description:
       "A machine learning model for recognizing handwritten digits from 0 to 9 using Convolutional Neural Networks (CNN).",
     colabLink:
@@ -141,7 +205,7 @@ const projects: Project[] = [
   {
     title: "Movies Recommendation System",
     imageUrl: Movies,
-    technologies: ["Numpy", "Cosine Similarity"],
+    technologies: ["Cosine Similarity"],
     description:
       "A recommendation system that leverages user preferences and machine learning algorithms to suggest personalized movie recommendations based on user behavior.",
     colabLink:
@@ -151,7 +215,7 @@ const projects: Project[] = [
   {
     title: "Spam Mail Detection",
     imageUrl: Spam,
-    technologies: ["Numpy", "Pandas", "Logistic Regression"],
+    technologies: ["Logistic Regression"],
     description:
       "A machine learning model for identifying and filtering spam emails. Utilizes pattern analysis and characteristics to distinguish between legitimate and unwanted messages.",
     colabLink:
@@ -161,7 +225,7 @@ const projects: Project[] = [
   {
     title: "Customer Segmentation Using K-Means",
     imageUrl: Customer,
-    technologies: ["Numpy", "Pandas", "K-Means Clustering"],
+    technologies: ["K-Means Clustering"],
     description:
       "A machine learning model that clusters customers into distinct groups based on similar behaviors and characteristics using K-Means Clustering.",
     colabLink:
@@ -171,7 +235,7 @@ const projects: Project[] = [
   {
     title: "Heart Disease Prediction",
     imageUrl: Heart,
-    technologies: ["Numpy", "Pandas", "Logistic Regression"],
+    technologies: ["Logistic Regression"],
     description:
       "A machine learning model for predicting the likelihood of heart disease based on patient medical data using Logistic Regression.",
     colabLink:
@@ -181,7 +245,7 @@ const projects: Project[] = [
   {
     title: "Diabetes Prediction",
     imageUrl: Diabetes,
-    technologies: ["Numpy", "Pandas", "Support Vector Machine"],
+    technologies: ["Support Vector Machine"],
     description:
       "A machine learning model for assessing the risk of diabetes in individuals based on health data using Support Vector Machine (SVM).",
     colabLink:
