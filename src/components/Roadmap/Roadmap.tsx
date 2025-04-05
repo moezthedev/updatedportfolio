@@ -12,9 +12,15 @@ import Image from "next/image";
 const Roadmap = () => {
   const milestones = [
     {
+      title: "MTBC Carecloud",
+      description: "AI Engineer Intern",
+      date: "April 2025 - Present",
+      image: Enqaurie, // Add image path
+    },
+    {
       title: "Enquaire",
       description: "FullStack Software Engineer",
-      date: "October 2024 - Present",
+      date: "October 2024 - March 2025",
       image: Enqaurie, // Add image path
     },
     {
