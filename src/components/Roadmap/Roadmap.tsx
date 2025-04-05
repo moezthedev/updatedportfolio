@@ -8,6 +8,7 @@ import Risetech from "@/app/assets/risetech.png";
 import Interns from "@/app/assets/interns.png";
 import Synapsify from "@/app/assets/synapsify.jpg";
 import Enqaurie from "@/app/assets/logo-enquire.png";
+import MTBC from "@/app/assets/carecloud_logo.jpg";
 import Image from "next/image";
 const Roadmap = () => {
   const milestones = [
@@ -15,7 +16,7 @@ const Roadmap = () => {
       title: "MTBC Carecloud",
       description: "AI Engineer Intern",
       date: "April 2025 - Present",
-      image: Enqaurie, // Add image path
+      image: MTBC, // Add image path
     },
     {
       title: "Enquaire",
