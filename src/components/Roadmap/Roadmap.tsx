@@ -16,7 +16,7 @@ const Roadmap = () => {
       title: "MTBC Carecloud",
       description: "AI Engineer Intern",
       date: "April 2025 - Present",
-      image: MTBC, // Add image path
+      image: MTBC, 
     },
     {
       title: "Enquaire",

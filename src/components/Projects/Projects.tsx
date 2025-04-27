@@ -1,9 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link as ScrollLink, Element } from "react-scroll";
+import { Element } from "react-scroll";
 import Particle from "@/components/Particle/Particle";
-import Image from "next/image";
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button as MuiButton,
+  Typography as MuiTypography,
+  Chip,
+  Box,
+} from "@mui/material";
 import { projects } from "./ProjectDetails";
 
 const ShowcaseProjects: React.FC = () => {
@@ -17,11 +27,15 @@ const ShowcaseProjects: React.FC = () => {
 
   return (
     <>
-      <Element name="project" id="project"></Element>
+      <Element name="project" id="project" />
       <Particle />
+
+      {/* ← keep your original header */}
       <h1 className="text-white font-bold pb-6 pt-2 text-5xl pl-2 text-center bg-primary">
         Projects
       </h1>
+
+      {/* ← keep your original filter-bar */}
       <div className="flex justify-center pb-4 bg-primary">
         <button
           className={`px-4 py-2 mx-2 ${
@@ -42,11 +56,13 @@ const ShowcaseProjects: React.FC = () => {
           Full Stack
         </button>
       </div>
-      <div className="grid bg-opacity-100 bg-gradient-to-t from-tertiary via-secondary to-primary grid-cols-1 md:grid-cols-2 p-8 md:p-12 lg:grid-cols-3 gap-4 md:gap-8">
-        {filteredProjects.map((project, index) => (
+
+      {/* ← restored your Tailwind gradient background */}
+      <div className="grid bg-opacity-100 bg-gradient-to-t from-tertiary via-secondary to-primary grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-8 md:p-12 gap-4 md:gap-8">
+        {filteredProjects.map((project, idx) => (
           <motion.div
-            key={index}
-            className="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer"
+            key={idx}
+            className="h-full"
             initial={{ opacity: 0, y: 20 }}
             whileHover={{ scale: 1.02 }}
             whileInView={{
@@ -55,75 +71,80 @@ const ShowcaseProjects: React.FC = () => {
               transition: { duration: 1, ease: "easeIn" },
             }}
           >
-            <div className="relative w-full h-60">
-              <Image
-                src={project.imageUrl.src}
-                alt={project.title}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-4">
-              <h2 className="text-2xl font-semibold text-blue-500">
-                {project.title}
-              </h2>
-              <div className="flex flex-wrap gap-2 mb-4 mt-2">
-                {project.technologies.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+            <Card className="flex flex-col h-full shadow-lg">
+              <CardActionArea className="flex-grow">
+                <CardMedia
+                  component="img"
+                  image={project.imageUrl.src}
+                  alt={project.title}
+                  sx={{
+                    objectFit: "contain",
+                    height: 200,
+                    backgroundColor: "#f5f5f5",
+                  }}
+                />
+                <CardContent>
+                  <MuiTypography
+                    variant="h5"
+                    gutterBottom
+                    className="text-blue-500"
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <p className="text-gray-700">{project.description}</p>
-              <div className="mt-4">
-                {project.category !== "ML" && (
-                  <a
+                    {project.title}
+                  </MuiTypography>
+                  <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
+                    {project.technologies.map((tech, tIdx) => (
+                      <Chip key={tIdx} label={tech} size="small" />
+                    ))}
+                  </Box>
+                  <MuiTypography variant="body2" color="text.secondary">
+                    {project.description}
+                  </MuiTypography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                {project.category !== "ML" && project.githubLink && (
+                  <MuiButton
+                    size="small"
                     href={project.githubLink}
-                    className="text-blue-500 hover:font-bold text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View on GitHub
-                  </a>
+                    GitHub
+                  </MuiButton>
                 )}
                 {project.category === "ML" && project.colabLink && (
-                  <a
+                  <MuiButton
+                    size="small"
                     href={project.colabLink}
-                    className="mt-auto text-blue-500 hover:font-bold text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     View
-                  </a>
+                  </MuiButton>
                 )}
-
                 {project.category === "Full Stack" && project.liveDemoLink && (
-                  <a
+                  <MuiButton
+                    size="small"
                     href={project.liveDemoLink}
-                    className="ml-4 text-blue-500 hover:font-bold"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Live Demo
-                  </a>
+                  </MuiButton>
                 )}
-              </div>
-            </div>
+              </CardActions>
+            </Card>
           </motion.div>
         ))}
       </div>
 
-      <p className="text-white text-center bg-black ">
+      <p className="text-white text-center bg-black">
         View latest ML work{" "}
         <a
           className="text-blue-500"
           href="https://drive.google.com/drive/folders/1mHck6iYmK467WHiDhVrYUrUECEyWdp4C?usp=sharing"
           target="_blank"
+          rel="noopener noreferrer"
         >
           here
         </a>
