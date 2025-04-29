@@ -13,7 +13,6 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
   hiddenWords = [
     "DEBUG",
     "404",
-    "TRUTH",
     "CODE",
     "KEEP GOING",
     "BELIEVE",
@@ -21,6 +20,8 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
     "INNOVATE",
     "PERSIST",
     "HONEST",
+    "NEVER GIVEUP",
+    "DREAM",
   ],
   speed = 1,
 }) => {
