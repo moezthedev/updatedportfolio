@@ -20,6 +20,7 @@ import Skin from "@/app/assets/skin.png";
 import Eye from "@/app/assets/eye.png";
 import Painter from "@/app/assets/painter.jpg";
 import Lung from "@/app/assets/lung.jpg";
+import BrainTumour from "@/app/assets/brain-tumor.jpg";
 import { StaticImageData } from "next/image";
 
 interface Project {
@@ -113,6 +114,17 @@ const projects: Project[] = [
     githubLink: "https://github.com/moezthedev/bitnineglobal",
     liveDemoLink: "https://bitnine-beryl.vercel.app/",
     category: "Full Stack",
+  },
+  {
+    title:
+      "Ai based classification,segmentation and report generation of Brain Tumor (Comppec'25 Winner)",
+    imageUrl: BrainTumour,
+    technologies: ["Vision Transformers", "Segformer3D", "PyTorch"],
+    description:
+      "An AI-based system for brain tumor analysis automates classification, segmentation, and report generation from MRI scans. It accurately detects tumor types, delineates tumor boundaries, and produces detailed medical reports, aiding radiologists in diagnosis and treatment planning. This enhances speed, consistency, and precision in brain tumor assessment.",
+    colabLink:
+      "https://colab.research.google.com/drive/1ccInc9o39yetik48x0fCdn9QLeZmBhQ_?usp=sharing",
+    category: "ML",
   },
   {
     title: "Skin Cancer Segmentation Using Vision Transformers",
