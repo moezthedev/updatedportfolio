@@ -117,7 +117,7 @@ const projects: Project[] = [
   },
   {
     title:
-      "Ai based classification,segmentation and report generation of Brain Tumor (Comppec'25 Winner)",
+      "Ai based classification,segmentation and report generation of Brain Tumor (Comppec'25 Winner) + Merit Award for being in top 5 of whole batch",
     imageUrl: BrainTumour,
     technologies: ["Vision Transformers", "Segformer3D", "PyTorch"],
     description:
