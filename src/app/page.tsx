@@ -6,13 +6,14 @@ import ProjectDetail from "@/components/Projects/Projects";
 import ContactForm from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
 import Roadmap from "@/components/Roadmap/Roadmap";
+import AchievementCollage from "@/components/Achievements/achievements";
 function Page() {
   return (
     <>
       <Header />
       <GoToTopButton />
       <Skills />
-
+      <AchievementCollage />
       <Roadmap />
       <ProjectDetail />
       <ContactForm />
