@@ -44,10 +44,10 @@ const AchievementCollage = () => {
   const [selected, setSelected] = useState<Achievement | null>(null);
 
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br  from-tertiary via-secondary to-primary overflow-hidden">
-      <h2 className="relative z-20 text-5xl md:text-6xl font-extrabold text-center text-white mb-16 animate-fadeIn">
+    <section className="relative py-20 px-8 bg-gradient-to-br  from-tertiary via-secondary to-primary overflow-hidden p-4">
+      <h4 className="relative z-20 text-5xl md:text-6xl font-bold text-center text-white mb-16 animate-fadeIn">
         Achievements
-      </h2>
+      </h4>
 
       <div className="relative w-full h-[500px] max-w-4xl mx-auto">
         {achievements.map((ach, idx) => (
