@@ -19,7 +19,7 @@ const achievements: Achievement[] = [
     src: ach1.src,
     alt: "Achievement 1",
     description:
-      "Our fyp project NeuroFusion won first place at Comppec'25 in Sofware Applications category.",
+      "Our fyp project NeuroFusion won first place at Comppec'25 in Software Applications category.",
     initial: { x: -40, y: 20, rotate: -6 },
   },
   {
