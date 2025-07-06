@@ -1,28 +1,13 @@
-// components/MatrixRain/MatrixRain.tsx
 "use client";
 import React, { useRef, useEffect } from "react";
 
 interface MatrixRainProps {
   rainColors?: string[];
-  hiddenWords?: string[];
   speed?: number;
 }
 
 const MatrixRain: React.FC<MatrixRainProps> = ({
   rainColors = ["rgba(255,255,255,0.8)", "rgba(200,255,200,0.8)"],
-  hiddenWords = [
-    "DEBUG",
-    "404",
-    "CODE",
-    "KEEP GOING",
-    "BELIEVE",
-    "CREATE",
-    "INNOVATE",
-    "PERSIST",
-    "HONEST",
-    "NEVER GIVEUP",
-    "DREAM",
-  ],
   speed = 1,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -40,22 +25,13 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
       ""
     );
 
-    const floatingHiddenWords: {
-      text: string;
-      x: number;
-      y: number;
-      start: number;
-    }[] = [];
-
     const draw = () => {
       if (!ctx) return;
-      const now = Date.now();
 
       ctx.fillStyle = "rgba(9,27,55,0.25)";
       ctx.fillRect(0, 0, w, h);
       ctx.font = `${fontSize}px monospace`;
 
-      // draw raining letters
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
         const x = i * fontSize;
@@ -68,27 +44,6 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
           drops[i] = 0;
         }
         drops[i] += speed;
-      }
-
-      // randomly add multiple floating hidden words
-      if (Math.random() < 0.6 && floatingHiddenWords.length < 2) {
-        floatingHiddenWords.push({
-          text: hiddenWords[Math.floor(Math.random() * hiddenWords.length)],
-          x: Math.random() * w,
-          y: Math.random() * h,
-          start: now,
-        });
-      }
-
-      // draw floating hidden words
-      for (let i = floatingHiddenWords.length - 1; i >= 0; i--) {
-        const word = floatingHiddenWords[i];
-        if (now - word.start < 2000) {
-          ctx.fillStyle = "rgba(255,0,0,1)";
-          ctx.fillText(word.text, word.x, word.y);
-        } else {
-          floatingHiddenWords.splice(i, 1);
-        }
       }
     };
 
@@ -103,7 +58,7 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
       clearInterval(interval);
       window.removeEventListener("resize", handleResize);
     };
-  }, [rainColors, hiddenWords, speed]);
+  }, [rainColors, speed]);
 
   return (
     <canvas
