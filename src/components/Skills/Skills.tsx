@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { machine } from "os";
 const Skills = () => {
   const techLogos: { [key: string]: string } = {
     react:

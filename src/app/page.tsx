@@ -55,6 +55,11 @@ function Page() {
       role: "Associate Software Engineer",
       company: "DoDAO",
     },
+    {
+      name: "Sharjeel Ahmed",
+      role: "Manager AI",
+      company: "CareCloud",
+    },
   ];
   return (
     <>

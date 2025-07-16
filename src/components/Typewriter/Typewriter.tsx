@@ -1,7 +1,7 @@
+"use client";
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
-
 const glitchVariants = {
   initial: { opacity: 0, y: -10 },
   animate: {

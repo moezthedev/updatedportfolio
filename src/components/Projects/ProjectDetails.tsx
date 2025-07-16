@@ -121,7 +121,7 @@ const projects: Project[] = [
     imageUrl: BrainTumour,
     technologies: ["Vision Transformers", "Segformer3D", "PyTorch"],
     description:
-      "An AI-based system for brain tumor analysis automates classification, segmentation, and report generation from MRI scans. It accurately detects tumor types, delineates tumor boundaries, and produces detailed medical reports, aiding radiologists in diagnosis and treatment planning. This enhances speed, consistency, and precision in brain tumor assessment.",
+      "An AI-based web app for brain tumor analysis automates classification, segmentation, and report generation from MRI scans. It accurately detects tumor types, delineates tumor boundaries, and produces detailed medical reports, aiding radiologists in diagnosis and treatment planning. This enhances speed, consistency, and precision in brain tumor assessment.",
     colabLink: "https://neurofusion.vercel.app/",
     category: "ML",
   },
