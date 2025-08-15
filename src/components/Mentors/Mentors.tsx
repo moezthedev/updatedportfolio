@@ -83,7 +83,6 @@ const MentorCard = memo(
                     {mentor.name}
                   </h3>
                   <div className="flex items-center space-x-1 text-gray-300 text-sm mt-1">
-                    <StarIcon className="w-4 h-4 text-yellow-400" />
                     <span>{mentor.role}</span>
                   </div>
                 </div>
@@ -113,8 +112,7 @@ const MentorCard = memo(
               )}
             </div>
 
-            {/* Company */}
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center justify-center space-x-2 mb-4">
               <BuildingOfficeIcon className="w-4 h-4 text-gray-400" />
               <span className="text-gray-300 text-sm font-medium">
                 {mentor.company}
@@ -294,23 +292,6 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
 
           {/* Slider Container */}
           <div className="relative">
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
-              aria-label="Previous mentor"
-            >
-              <ChevronLeftIcon className="w-6 h-6 text-white" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
-              aria-label="Next mentor"
-            >
-              <ChevronRightIcon className="w-6 h-6 text-white" />
-            </button>
-
             {/* Cards Container */}
             <div
               ref={scrollContainerRef}
