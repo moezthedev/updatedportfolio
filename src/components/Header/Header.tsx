@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden mt-10">
       {/* faint code rain */}
 
       {/* preserve your exact gradient */}
