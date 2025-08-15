@@ -66,7 +66,7 @@ const NavItem = React.memo<{
       <li className={className}>
         <a
           href={item.href}
-          className="hover:text-gray-400 transition-colors duration-200 focus:outline-none focus:text-gray-300 z-100"
+          className="hover:text-gray-400 transition-colors duration-200 focus:outline-none focus:text-gray-300 z-100 text-white"
           onClick={onClick}
         >
           {item.label}
@@ -102,13 +102,13 @@ const HamburgerIcon = React.memo<{
 }>(({ isOpen, onClick }) => (
   <button
     onClick={onClick}
-    className="lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-400 rounded p-1 transition-all duration-200"
+    className="lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-400 rounded p-1 transition-all duration-200 text-white"
     aria-label={isOpen ? "Close menu" : "Open menu"}
     aria-expanded={isOpen}
   >
-    <div className="w-6 h-6 relative">
+    <div className="w-6 h-6 relative text-white">
       <motion.span
-        className="absolute block w-full h-0.5 transform transition-all duration-300"
+        className="absolute block w-full h-0.5 bg-white transform transition-all duration-300"
         animate={{
           rotate: isOpen ? 45 : 0,
           y: isOpen ? 8 : 0,
@@ -116,14 +116,14 @@ const HamburgerIcon = React.memo<{
         style={{ top: "6px" }}
       />
       <motion.span
-        className="absolute block w-full h-0.5  transform transition-all duration-300"
+        className="absolute block w-full h-0.5 bg-white transform transition-all duration-300"
         animate={{
           opacity: isOpen ? 0 : 1,
         }}
         style={{ top: "12px" }}
       />
       <motion.span
-        className="absolute block w-full h-0.5 transform transition-all duration-300"
+        className="absolute block w-full h-0.5 bg-white transform transition-all duration-300"
         animate={{
           rotate: isOpen ? -45 : 0,
           y: isOpen ? -8 : 0,
