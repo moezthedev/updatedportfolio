@@ -1,7 +1,9 @@
-import React from "react";
+import Spinner from "@/components/Spinner/Spinner";
 
-const loading = () => {
-  return <div>loading....</div>;
-};
-
-export default loading;
+export default function Loading() {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <Spinner size="lg" color="indigo" />
+    </div>
+  );
+}

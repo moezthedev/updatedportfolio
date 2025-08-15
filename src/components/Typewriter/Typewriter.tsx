@@ -47,12 +47,7 @@ function TypewriterComponent({ pVariants }: { pVariants: any }) {
       >
         <Typewriter
           options={{
-            strings: [
-              "Full Stack Engineer",
-              "AI/ML/DL Engineer",
-              "SQA Engineer",
-              "IOT Developer",
-            ],
+            strings: ["AI/ML Engineer", "Software Engineer"],
             autoStart: true,
             loop: true,
             delay: 50, // Randomized typing speed

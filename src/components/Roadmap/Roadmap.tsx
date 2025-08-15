@@ -9,59 +9,65 @@ import Interns from "@/app/assets/interns.png";
 import Synapsify from "@/app/assets/synapsify.jpg";
 import Enqaurie from "@/app/assets/logo-enquire.png";
 import MTBC from "@/app/assets/carecloud_logo.jpg";
+import Telenor from "@/app/assets/telenor.png";
 import Image from "next/image";
+const milestones = [
+  {
+    title: "Telenor",
+    description: "Software Engineer",
+    date: "June 2025 - Present",
+    image: Telenor,
+  },
+  {
+    title: "MTBC Carecloud",
+    description: "AI Engineer Intern",
+    date: "April 2025 - May 2025",
+    image: MTBC,
+  },
+  {
+    title: "Enquaire",
+    description: "FullStack Software Engineer",
+    date: "October 2024 - March 2025",
+    image: Enqaurie, // Add image path
+  },
+  {
+    title: "DoDAO",
+    description: "Full Stack Software Engineer Intern",
+    date: "June 2024 - Aug 2024",
+    image: DoDAO, // Add image path
+  },
+  {
+    title: "Synapsify",
+    description: "SQA Intern",
+    date: "June 2024 - Aug 2024 ",
+    image: Synapsify,
+  },
+  {
+    title: "Amal Academy",
+    description: "Personal and Professional Development Fellow",
+    date: "Apr 2024 - Jun 2024",
+    image: Amal, // Add image path
+  },
+  {
+    title: "Comppec",
+    description: "Director Web & IT Wing",
+    date: "Mar 2024 - May 2024",
+    image: Comppec, // Add image path
+  },
+  {
+    title: "RiseTech",
+    description: "Web Application Developer",
+    date: "Jul 2023 - Aug 2023",
+    image: Risetech,
+  },
+  {
+    title: "Interns Pakistan",
+    description: "Frontend Developer",
+    date: "Nov 2022 - Dec 2022 ",
+    image: Interns,
+  },
+];
 const Roadmap = () => {
-  const milestones = [
-    {
-      title: "MTBC Carecloud",
-      description: "AI Engineer Intern",
-      date: "April 2025 - May 2025",
-      image: MTBC,
-    },
-    {
-      title: "Enquaire",
-      description: "FullStack Software Engineer",
-      date: "October 2024 - March 2025",
-      image: Enqaurie, // Add image path
-    },
-    {
-      title: "DoDAO",
-      description: "FullStack Software Engineer Intern",
-      date: "June 2024 - Aug 2024",
-      image: DoDAO, // Add image path
-    },
-    {
-      title: "Synapsify",
-      description: "SQA Intern",
-      date: "June 2024 - Aug 2024 ",
-      image: Synapsify,
-    },
-    {
-      title: "Amal Academy",
-      description: "Personal and Professional Development Fellow",
-      date: "Apr 2024 - Jun 2024",
-      image: Amal, // Add image path
-    },
-    {
-      title: "Comppec",
-      description: "Director Web & IT Wing",
-      date: "Mar 2024 - May 2024",
-      image: Comppec, // Add image path
-    },
-    {
-      title: "RiseTech",
-      description: "Web Application Developer",
-      date: "Jul 2023 - Aug 2023",
-      image: Risetech,
-    },
-    {
-      title: "Interns Pakistan",
-      description: "Frontend Developer",
-      date: "Nov 2022 - Dec 2022 ",
-      image: Interns,
-    },
-  ];
-
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -121,10 +127,10 @@ const Roadmap = () => {
                     className="w-12 h-12 rounded-full mr-4"
                   />
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">
+                    <h3 className="text-xl font-bold mb-2">
                       {milestone.title}
                     </h3>
-                    <p className="text-sm mb-2">{milestone.description}</p>
+                    <p className="text-lg mb-2">{milestone.description}</p>
                     <span className="text-xs text-gray-400">
                       {milestone.date}
                     </span>
