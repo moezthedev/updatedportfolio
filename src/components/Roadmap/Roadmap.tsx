@@ -21,12 +21,12 @@ const milestones = [
   {
     title: "MTBC Carecloud",
     description: "AI Engineer Intern",
-    date: "April 2025 - May 2025",
+    date: "April 2025 - June 2025",
     image: MTBC,
   },
   {
     title: "Enquaire",
-    description: "FullStack Software Engineer",
+    description: "Generative AI Engineer",
     date: "October 2024 - March 2025",
     image: Enqaurie, // Add image path
   },
