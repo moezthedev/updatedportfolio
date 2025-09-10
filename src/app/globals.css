@@ -41,10 +41,73 @@
   }
 }
 
+/* Mobile-optimized animations */
+@keyframes slide-up-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-slide-up {
   animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in {
   animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile-optimized animation classes */
+.animate-slide-up-mobile {
+  animation: slide-up-mobile 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in-mobile {
+  animation: fade-in-mobile 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .animate-slide-up-mobile {
+    animation-duration: 0.4s;
+  }
+
+  .animate-fade-in-mobile {
+    animation-duration: 0.3s;
+  }
+
+  /* Reduce motion for very low-end devices */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-up-mobile,
+    .animate-fade-in-mobile {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Disable heavy animations on mobile */
+  @keyframes grid-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(25px, 25px); /* Reduced movement */
+    }
+  }
 }
