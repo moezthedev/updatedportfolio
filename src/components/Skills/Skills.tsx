@@ -5,7 +5,9 @@ import { SKILLS_DATA } from "./skillsData";
 // Dynamically import client components
 const CategorySection = dynamic(() => import("./CategorySection"), {
   ssr: false,
-  loading: () => <div className="text-white text-center py-8">Loading skills...</div>,
+  loading: () => (
+    <div className="text-white text-center py-8">Loading skills...</div>
+  ),
 });
 
 const Skills = memo(() => {
@@ -63,7 +65,9 @@ const Skills = memo(() => {
               <div className="text-2xl sm:text-3xl font-bold text-white">
                 {SKILLS_DATA.reduce((acc, cat) => acc + cat.skills.length, 0)}+
               </div>
-              <div className="text-white/60 text-xs sm:text-sm">Technologies</div>
+              <div className="text-white/60 text-xs sm:text-sm">
+                Technologies
+              </div>
             </div>
             <div className="w-px h-10 sm:h-12 bg-white/20" />
             <div className="text-center">

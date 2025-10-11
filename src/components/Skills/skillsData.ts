@@ -1,4 +1,16 @@
-export const SKILLS_DATA = [
+interface Skill {
+  name: string;
+  url: string;
+  level: number;
+}
+
+interface Category {
+  category: string;
+  icon: string;
+  skills: Skill[];
+}
+
+export const SKILLS_DATA: Category[] = [
   {
     category: "AI & Data Science",
     icon: "🤖",
@@ -17,6 +29,11 @@ export const SKILLS_DATA = [
         name: "LangChain",
         url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langchain.svg",
         level: 88,
+      },
+      {
+        name: "LangGraph",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langchain.svg",
+        level: 82,
       },
       {
         name: "Hugging Face",
@@ -89,11 +106,6 @@ export const SKILLS_DATA = [
         level: 74,
       },
       {
-        name: "Detectron2",
-        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/detectron.svg",
-        level: 70,
-      },
-      {
         name: "Pillow",
         url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/pillow.svg",
         level: 80,
@@ -142,6 +154,71 @@ export const SKILLS_DATA = [
         name: "Streamlit",
         url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/streamlit.svg",
         level: 78,
+      },
+      {
+        name: "Machine Learning",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/scikitlearn.svg",
+        level: 90,
+      },
+      {
+        name: "Deep Learning",
+        url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+        level: 85,
+      },
+      {
+        name: "NLP",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nltk.svg",
+        level: 82,
+      },
+      {
+        name: "Computer Vision",
+        url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
+        level: 80,
+      },
+      {
+        name: "TensorBoard",
+        url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+        level: 75,
+      },
+      {
+        name: "ONNX",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/onnx.svg",
+        level: 70,
+      },
+      {
+        name: "Transformers",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/huggingface.svg",
+        level: 85,
+      },
+      {
+        name: "TensorRT",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nvidia.svg",
+        level: 72,
+      },
+      {
+        name: "LLMs",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg",
+        level: 88,
+      },
+      {
+        name: "AI Agents",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langchain.svg",
+        level: 85,
+      },
+      {
+        name: "Vector Databases",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/pinecone.svg",
+        level: 78,
+      },
+      {
+        name: "Leadership",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/teamspeak.svg",
+        level: 90,
+      },
+      {
+        name: "Time Management",
+        url: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/clockify.svg",
+        level: 88,
       },
     ],
   },

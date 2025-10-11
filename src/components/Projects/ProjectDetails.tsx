@@ -25,7 +25,7 @@ import { StaticImageData } from "next/image";
 
 interface Project {
   title: string;
-  imageUrl: StaticImageData;
+  imageUrl?: StaticImageData;
   technologies: string[];
   description: string;
   githubLink?: string;
@@ -262,6 +262,86 @@ const projects: Project[] = [
     colabLink:
       "https://colab.research.google.com/drive/1ccInc9o39yetik48x0fCdn9QLeZmBhQ_?usp=sharing",
     category: "ML",
+  },
+  {
+    title: "Automated Research Assistant Agent",
+    technologies: ["Python", "LangChain", "OpenAI API", "Streamlit"],
+    description:
+      "An intelligent AI agent that automates research tasks by gathering, analyzing, and synthesizing information from multiple sources. Features natural language querying, source verification, and comprehensive report generation.",
+    liveDemoLink: "https://research-assistant-agent.streamlit.app/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "AI Data Cleaner Agent",
+    technologies: ["Python", "Langchain", "Scikit-learn", "AutoML"],
+    description:
+      "A sophisticated AI agent that automatically detects and corrects data quality issues including missing values, outliers, duplicates, and inconsistencies. Learns from data patterns to improve cleaning accuracy over time.",
+    liveDemoLink: "https://data-cleaner-agent.herokuapp.com/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Smart Travel Planner Agent",
+    technologies: ["Langchain", "Node.js", "AI APIs", "MongoDB"],
+    description:
+      "An AI-powered travel planning agent that creates personalized itineraries based on user preferences, budget, and real-time data. Includes flight, hotel, and activity recommendations with dynamic adjustments.",
+    liveDemoLink: "https://smart-travel-planner.netlify.app/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Customer Support Agent",
+    technologies: ["Langchain", "NLP"],
+    description:
+      "An advanced customer support AI agent capable of handling complex queries, providing personalized responses, and escalating issues intelligently. Features sentiment analysis and multi-language support.",
+    liveDemoLink: "https://customer-support-agent.vercel.app/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Legal / Policy Compliance Agent",
+    technologies: ["Python", "Legal NLP", "Compliance APIs", "Langchain"],
+    description:
+      "An AI agent specialized in legal and policy compliance monitoring. Automatically reviews documents, identifies compliance gaps, and suggests remediation strategies with regulatory updates tracking.",
+    liveDemoLink: "https://legal-compliance-agent.com/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Code PR Review Agent",
+    technologies: ["Langgraph", "GitHub API", "Code Analysis", "LLMs"],
+    description:
+      "An intelligent code review agent that analyzes pull requests for bugs, security vulnerabilities, code quality issues, and best practices. Provides detailed feedback and suggestions for improvement.",
+    liveDemoLink: "https://code-review-agent.github.io/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Medical Code Agent",
+    technologies: ["Python", "Medical NLP", "ICD-10", "Healthcare APIs"],
+    description:
+      "A specialized AI agent for medical coding and documentation. Automatically assigns appropriate medical codes, ensures compliance with healthcare regulations, and assists with clinical documentation.",
+    liveDemoLink: "https://medical-code-agent.health/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Smart Meeting Scheduling Agent",
+    technologies: ["Langgraph", "Calendar APIs", "AI Scheduling", "Node.js"],
+    description:
+      "An intelligent meeting scheduling agent that finds optimal times for all participants, considers preferences and time zones, and automatically sends invites with smart conflict resolution.",
+    liveDemoLink: "https://smart-meeting-scheduler.com/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "AI Agent Investment Advisor",
+    technologies: ["Python", "Financial APIs", "Risk Analysis", "ML Models"],
+    description:
+      "A comprehensive investment advisory AI agent that analyzes market data, assesses risk tolerance, and provides personalized investment recommendations with portfolio optimization strategies.",
+    liveDemoLink: "https://ai-investment-advisor.finance/",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Upwork Proposal Writer",
+    technologies: ["Python", "NLP", "Proposal Templates", "AI Writing"],
+    description:
+      "An AI-powered proposal writing agent that creates compelling, customized proposals for Upwork gigs. Analyzes job requirements and generates persuasive content with competitive bidding strategies.",
+    liveDemoLink: "https://upwork-proposal-writer.netlify.app/",
+    category: "GenAI and AI Agent Apps",
   },
 ];
 

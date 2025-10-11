@@ -1,5 +1,6 @@
 "use client";
 import React, { memo, useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
   HeartIcon,
@@ -68,10 +69,13 @@ const MentorCard = memo(
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-center space-x-3">
                 {mentor.image ? (
-                  <img
+                  <Image
                     src={mentor.image}
                     alt={mentor.name}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover border-2 border-cyan-400/50"
+                    unoptimized
                   />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
@@ -339,12 +343,6 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
                 energy, and wisdom. Your guidance has been invaluable in shaping
                 who I am today and who I aspire to become tomorrow.
               </p>
-              <div className="flex items-center justify-center space-x-2 mt-4 text-cyan-300">
-                <span className="text-sm font-semibold">
-                  With immense gratitude
-                </span>
-                <HeartIcon className="w-4 h-4 animate-pulse" />
-              </div>
             </div>
           </motion.div>
         </div>

@@ -1,159 +1,157 @@
 "use client";
 import React, { useState, useMemo, lazy, Suspense, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Element } from "react-scroll";
-import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button as MuiButton,
-  Typography as MuiTypography,
-  Chip,
-  Box,
-  Skeleton,
-} from "@mui/material";
-import { projects } from "./ProjectDetails"; // Import your project data
+import { projects } from "./ProjectDetails"; // Import your project details
 
-// Lazy load components
+{
+  /* Lazy load components */
+}
 const Particle = lazy(() => import("@/components/Particle/Particle"));
 
 // Project card skeleton
 const ProjectSkeleton = () => (
-  <Card className="h-full bg-white rounded-lg shadow-lg">
-    <Skeleton variant="rectangular" height={200} animation="wave" />
-    <CardContent>
-      <Skeleton variant="text" width="80%" height={32} animation="wave" />
-      <Box display="flex" flexWrap="wrap" gap={1} my={2}>
-        {[...Array(4)].map((_, i) => (
-          <Skeleton
+  <div className="h-full relative">
+    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 shadow-2xl animate-pulse"></div>
+    <div className="relative h-full p-6 flex flex-col">
+      <div className="w-full h-48 bg-gray-700 rounded-xl mb-4 animate-pulse"></div>
+      <div className="h-6 bg-gray-700 rounded mb-3 animate-pulse"></div>
+      <div className="flex gap-2 mb-4">
+        {[...Array(3)].map((_, i) => (
+          <div
             key={i}
-            variant="circular"
-            width={70}
-            height={28}
-            animation="wave"
-          />
+            className="h-6 w-16 bg-gray-700 rounded-full animate-pulse"
+          ></div>
         ))}
-      </Box>
-      <Skeleton variant="text" height={24} animation="wave" />
-      <Skeleton variant="text" height={24} width="85%" animation="wave" />
-    </CardContent>
-    <CardActions>
-      <Skeleton
-        variant="rectangular"
-        width={100}
-        height={36}
-        animation="wave"
-      />
-    </CardActions>
-  </Card>
+      </div>
+      <div className="flex-1 space-y-2 mb-6">
+        <div className="h-4 bg-gray-700 rounded animate-pulse"></div>
+        <div className="h-4 bg-gray-700 rounded animate-pulse w-3/4"></div>
+        <div className="h-4 bg-gray-700 rounded animate-pulse w-1/2"></div>
+      </div>
+      <div className="h-10 bg-gray-700 rounded-lg animate-pulse"></div>
+    </div>
+  </div>
 );
 
-// Project card component - REMOVED React.memo TO FIX CATEGORY SWITCHING
+// Project card component
 const ProjectCard = ({ project, idx }: { project: any; idx: number }) => (
   <motion.div
     className="h-full"
     initial={{ opacity: 0, y: 20 }}
-    whileHover={{ scale: 1.03 }}
+    whileHover={{ scale: 1.03, y: -5 }}
     whileInView={{
       opacity: 1,
       y: 0,
       transition: { duration: 0.5, delay: idx * 0.1 },
     }}
     viewport={{ once: true, margin: "-50px" }}
-    key={`${project.title}-${idx}`} // Added unique key here
+    key={`${project.title}-${idx}`}
   >
-    <Card className="h-full flex flex-col bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-      <CardActionArea className="flex-grow">
-        <CardMedia
-          component="img"
-          image={project.imageUrl?.src || "/placeholder.png"}
-          alt={project.title}
-          className="object-contain"
-          sx={{
-            height: 200,
-            backgroundColor: "#f5f5f5",
-          }}
-        />
-        <CardContent>
-          <MuiTypography
-            variant="h5"
-            gutterBottom
-            className="text-blue-500 font-semibold line-clamp-2"
-            sx={{ minHeight: "64px" }}
-          >
-            {project.title}
-          </MuiTypography>
+    <div className="h-full relative group">
+      {/* Glassmorphism card background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 shadow-2xl"></div>
 
-          <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
-            {project.technologies
-              .slice(0, 4)
-              .map((tech: string, tIdx: number) => (
-                <Chip
-                  key={tIdx}
-                  label={tech}
-                  size="small"
-                  className="bg-gray-200 text-gray-700"
-                />
-              ))}
-            {project.technologies.length > 4 && (
-              <Chip
-                label={`+${project.technologies.length - 4}`}
-                size="small"
-                className="bg-gray-200 text-gray-500"
-              />
+      {/* Content */}
+      <div className="relative h-full p-6 flex flex-col">
+        {/* Image */}
+        <div className="relative mb-4 overflow-hidden rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+          {project.imageUrl ? (
+            <Image
+              src={project.imageUrl.src}
+              alt={project.title}
+              width={400}
+              height={192}
+              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+          ) : (
+            <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-blue-500/10 to-purple-500/10">
+              <div className="text-center">
+                <div className="text-4xl mb-2">🤖</div>
+                <div className="text-white/70 text-sm">Coming Soon</div>
+              </div>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 min-h-[3.5rem]">
+          {project.title}
+        </h3>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies
+            .slice(0, 4)
+            .map((tech: string, tIdx: number) => (
+              <span
+                key={tIdx}
+                className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30 backdrop-blur-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          {project.technologies.length > 4 && (
+            <span className="px-3 py-1 bg-gradient-to-r from-gray-500/20 to-gray-600/20 text-gray-300 text-sm rounded-full border border-gray-400/30 backdrop-blur-sm">
+              +{project.technologies.length - 4}
+            </span>
+          )}
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Actions */}
+        <div className="flex gap-3 mt-auto">
+          {project.category !== "ML" &&
+            project.category !== "GenAI and AI Agent Apps" &&
+            project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-600 text-white text-center rounded-lg hover:from-gray-600 hover:to-gray-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                GitHub
+              </a>
             )}
-          </Box>
-
-          <MuiTypography
-            variant="body2"
-            color="text.secondary"
-            className="text-gray-600 line-clamp-3"
-            sx={{ minHeight: "60px" }}
-          >
-            {project.description}
-          </MuiTypography>
-        </CardContent>
-      </CardActionArea>
-
-      <CardActions className="p-4 pt-0">
-        {project.category !== "ML" && project.githubLink && (
-          <MuiButton
-            size="small"
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800"
-          >
-            GitHub
-          </MuiButton>
-        )}
-        {project.category === "ML" && project.colabLink && (
-          <MuiButton
-            size="small"
-            href={project.colabLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800"
-          >
-            View
-          </MuiButton>
-        )}
-        {project.category === "Full Stack" && project.liveDemoLink && (
-          <MuiButton
-            size="small"
-            href={project.liveDemoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 text-white hover:bg-blue-600"
-            variant="contained"
-          >
-            Live Demo
-          </MuiButton>
-        )}
-      </CardActions>
-    </Card>
+          {project.category === "ML" && project.colabLink && (
+            <a
+              href={project.colabLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              View Demo
+            </a>
+          )}
+          {project.category === "Full Stack" && project.liveDemoLink && (
+            <a
+              href={project.liveDemoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Live Demo
+            </a>
+          )}
+          {project.category === "GenAI and AI Agent Apps" &&
+            project.liveDemoLink && (
+              <button
+                className="flex-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-not-allowed opacity-75"
+                disabled
+                title="Coming soon after thorough testing"
+              >
+                Coming Soon
+              </button>
+            )}
+        </div>
+      </div>
+    </div>
   </motion.div>
 );
 
@@ -165,53 +163,78 @@ const FilterButton = React.memo(
     onClick,
     count,
   }: {
-    category: "ML" | "Full Stack";
+    category: "AI & ML" | "Full Stack" | "GenAI and AI Agent Apps";
     selected: boolean;
     onClick: () => void;
     count: number;
   }) => (
     <button
-      className={`px-4 py-2 mx-2 rounded-lg font-medium transition-all duration-200 ${
+      className={`relative px-6 py-3 mx-2 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
         selected
-          ? "bg-blue-500 text-white shadow-md scale-105"
-          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-2xl shadow-blue-500/25"
+          : "bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 hover:shadow-lg"
       }`}
       onClick={onClick}
       aria-label={`Show ${category} projects`}
     >
-      {category} <span className="font-bold">({count})</span>
+      <span className="relative z-10">{category}</span>
+      <span
+        className={`ml-2 px-2 py-1 rounded-full text-xs font-bold ${
+          selected ? "bg-white/20" : "bg-blue-500/20 text-blue-300"
+        }`}
+      >
+        ({count})
+      </span>
+      {selected && (
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl blur opacity-50"></div>
+      )}
     </button>
   )
 );
 FilterButton.displayName = "FilterButton";
 
 const ShowcaseProjects: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<"ML" | "Full Stack">(
-    "ML"
-  );
+  const [selectedCategory, setSelectedCategory] = useState<
+    "AI & ML" | "Full Stack" | "GenAI and AI Agent Apps"
+  >("AI & ML");
   const [isLoading, setIsLoading] = useState(false);
 
   // Memoized project data
   const { filteredProjects, categoryCounts } = useMemo(() => {
+    const categoryMap = {
+      "AI & ML": "ML",
+      "Full Stack": "Full Stack",
+      "GenAI and AI Agent Apps": "GenAI and AI Agent Apps",
+    };
+
+    const dataCategory =
+      categoryMap[selectedCategory as keyof typeof categoryMap] ||
+      selectedCategory;
     const filtered = projects.filter(
-      (project) => project.category === selectedCategory
+      (project) => project.category === dataCategory
     );
 
     const counts = {
-      ML: projects.filter((p) => p.category === "ML").length,
+      "AI & ML": projects.filter((p) => p.category === "ML").length,
       "Full Stack": projects.filter((p) => p.category === "Full Stack").length,
+      "GenAI and AI Agent Apps": projects.filter(
+        (p) => p.category === "GenAI and AI Agent Apps"
+      ).length,
     };
 
     return { filteredProjects: filtered, categoryCounts: counts };
   }, [selectedCategory]);
 
   // Smoother category transitions
-  const handleCategoryChange = useCallback((category: "ML" | "Full Stack") => {
-    setIsLoading(true);
-    setSelectedCategory(category);
-    // Faster timeout for better UX
-    setTimeout(() => setIsLoading(false), 200);
-  }, []);
+  const handleCategoryChange = useCallback(
+    (category: "AI & ML" | "Full Stack" | "GenAI and AI Agent Apps") => {
+      setIsLoading(true);
+      setSelectedCategory(category);
+      // Faster timeout for better UX
+      setTimeout(() => setIsLoading(false), 200);
+    },
+    []
+  );
 
   return (
     <>
@@ -225,15 +248,15 @@ const ShowcaseProjects: React.FC = () => {
       {/* Header section */}
       <header className="bg-primary">
         <h1 className="text-white font-bold pb-4 pt-8 text-4xl md:text-5xl text-center">
-          Projects
+          AI Engineering Projects
         </h1>
 
-        <div className="flex justify-center pb-6">
+        <div className="flex flex-wrap justify-center pb-6 gap-2">
           <FilterButton
-            category="ML"
-            selected={selectedCategory === "ML"}
-            onClick={() => handleCategoryChange("ML")}
-            count={categoryCounts.ML}
+            category="AI & ML"
+            selected={selectedCategory === "AI & ML"}
+            onClick={() => handleCategoryChange("AI & ML")}
+            count={categoryCounts["AI & ML"]}
           />
           <FilterButton
             category="Full Stack"
@@ -241,10 +264,16 @@ const ShowcaseProjects: React.FC = () => {
             onClick={() => handleCategoryChange("Full Stack")}
             count={categoryCounts["Full Stack"]}
           />
+          <FilterButton
+            category="GenAI and AI Agent Apps"
+            selected={selectedCategory === "GenAI and AI Agent Apps"}
+            onClick={() => handleCategoryChange("GenAI and AI Agent Apps")}
+            count={categoryCounts["GenAI and AI Agent Apps"]}
+          />
         </div>
       </header>
 
-      {/* Project grid - FIXED CATEGORY SWITCHING */}
+      {/* Project grid */}
       <div className="bg-gradient-to-t from-tertiary via-secondary to-primary min-h-screen">
         <div className="container mx-auto px-4 py-8 md:px-8 md:py-12">
           {isLoading ? (
@@ -256,7 +285,7 @@ const ShowcaseProjects: React.FC = () => {
           ) : (
             <div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-              key={selectedCategory} // Key forces re-render when category changes
+              key={selectedCategory}
             >
               {filteredProjects.map((project, idx) => (
                 <ProjectCard
