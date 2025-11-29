@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* globals.css */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -10,6 +11,22 @@
   scrollbar-width: none;
 }
 
+/* Base layer optimizations */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Android-specific optimizations */
+  @supports (-webkit-touch-callout: none) {
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+/* Desktop animations */
 @keyframes slide-up {
   from {
     opacity: 0;
@@ -41,26 +58,26 @@
   }
 }
 
-/* Mobile-optimized animations */
+/* Mobile-optimized animations with hardware acceleration */
 @keyframes slide-up-mobile {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.98);
+    transform: translate3d(0, 15px, 0) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes fade-in-mobile {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translate3d(0, 8px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -72,32 +89,44 @@
   animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Mobile-optimized animation classes */
+/* Mobile-optimized animation classes with hardware acceleration */
 .animate-slide-up-mobile {
-  animation: slide-up-mobile 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: slide-up-mobile 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .animate-fade-in-mobile {
-  animation: fade-in-mobile 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fade-in-mobile 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-/* Performance optimizations for mobile */
+/* Performance optimizations for mobile and Android */
 @media (max-width: 768px) {
   .animate-slide-up-mobile {
-    animation-duration: 0.4s;
-  }
-
-  .animate-fade-in-mobile {
     animation-duration: 0.3s;
   }
 
-  /* Reduce motion for very low-end devices */
+  .animate-fade-in-mobile {
+    animation-duration: 0.25s;
+  }
+
+  /* Reduce motion for very low-end devices or user preference */
   @media (prefers-reduced-motion: reduce) {
     .animate-slide-up-mobile,
-    .animate-fade-in-mobile {
-      animation: none;
-      opacity: 1;
-      transform: none;
+    .animate-fade-in-mobile,
+    .animate-slide-up,
+    .animate-fade-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 
@@ -107,7 +136,52 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(25px, 25px); /* Reduced movement */
+      transform: translate(20px, 20px);
     }
+  }
+}
+
+/* Android Chrome specific optimizations */
+@supports (-webkit-appearance: none) {
+  @media (max-width: 768px) {
+    /* Force GPU acceleration for all animated elements */
+    [class*="animate-"],
+    [class*="motion-"],
+    [class*="transition-"] {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      perspective: 1000;
+    }
+  }
+}
+
+/* Smooth scrolling optimization for Android */
+@media (max-width: 768px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Additional performance hints */
+@layer utilities {
+  .gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
   }
 }

@@ -46,15 +46,18 @@ const MentorCard = memo(
 
     return (
       <motion.div
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{
-          delay: index * 0.15,
-          duration: 0.6,
-          type: "spring",
-          stiffness: 100,
+          delay: index * 0.1,
+          duration: 0.4,
+          ease: [0.25, 0.46, 0.45, 0.94],
         }}
-        className="group flex-shrink-0 w-80 sm:w-96 snap-center relative "
+        className="group flex-shrink-0 w-80 sm:w-96 snap-center relative"
+        style={{
+          willChange: isInView ? "transform, opacity" : "auto",
+          transform: "translateZ(0)",
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -154,15 +157,10 @@ const MentorCard = memo(
               </div>
             )}
 
-            {/* Decorative elements */}
-            <motion.div
-              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100"
-              initial={{ rotate: 0 }}
-              animate={isHovered ? { rotate: 360 } : {}}
-              transition={{ duration: 1, ease: "easeInOut" }}
-            >
+            {/* Decorative elements - simplified for mobile performance */}
+            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <HeartIcon className="w-5 h-5 text-pink-400" />
-            </motion.div>
+            </div>
           </div>
 
           {/* Border gradient animation */}
@@ -184,7 +182,11 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
     const [currentIndex, setCurrentIndex] = useState(0);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null);
-    const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+    const isInView = useInView(sectionRef, {
+      once: true,
+      amount: 0.15,
+      margin: "0px 0px -100px 0px",
+    });
 
     // Navigation functions
     const scrollToIndex = useCallback((index: number) => {
@@ -236,9 +238,9 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
           />
         </div>
 
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(12)].map((_, i) => (
+        {/* Animated particles - reduced for mobile performance */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+          {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
@@ -254,6 +256,7 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
               style={{
                 left: `${Math.random() * 100}%`,
                 top: "100%",
+                willChange: "transform, opacity",
               }}
             />
           ))}
@@ -263,10 +266,11 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
           {/* Header */}
           <div className="text-center mb-16">
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, type: "spring" }}
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="inline-flex items-center space-x-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-lg rounded-full border border-white/20"
+              style={{ willChange: isInView ? "transform, opacity" : "auto" }}
             >
               <HeartIcon className="w-6 h-6 text-pink-400 animate-pulse" />
               <span className="text-lg font-semibold">
@@ -275,19 +279,29 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: -50 }}
+              initial={{ opacity: 0, y: -30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
               className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight"
+              style={{ willChange: isInView ? "transform, opacity" : "auto" }}
             >
               Tribute to Incredible Mentors
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
               className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
+              style={{ willChange: isInView ? "transform, opacity" : "auto" }}
             >
               The extraordinary individuals who shaped my journey with their
               wisdom, guidance, and unwavering support
@@ -331,10 +345,15 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
 
           {/* Bottom Message */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: mentors.length * 0.1 + 0.6, duration: 0.8 }}
+            transition={{
+              delay: 0.4,
+              duration: 0.5,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
             className="text-center mt-16"
+            style={{ willChange: isInView ? "transform, opacity" : "auto" }}
           >
             <div className="max-w-2xl mx-auto p-8 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-lg rounded-2xl border border-white/20">
               <HeartIcon className="w-8 h-8 text-pink-400 mx-auto mb-4 animate-pulse" />

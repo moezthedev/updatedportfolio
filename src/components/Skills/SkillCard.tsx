@@ -32,12 +32,12 @@ const SkillCard = memo<SkillCardProps>(({ skill, index, categoryIndex }) => {
           // Throttle animation triggers to prevent overwhelming mobile devices
           timeoutId = setTimeout(() => {
             setIsInView(true);
-          }, Math.min(categoryIndex * 100 + index * 50, 2000)); // Cap at 2s max delay
+          }, Math.min(categoryIndex * 50 + index * 30, 1000)); // Faster, capped at 1s
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "50px", // Start animation earlier
+        threshold: 0.05,
+        rootMargin: "100px", // Start animation earlier for smoother scrolling
       }
     );
 
@@ -68,13 +68,15 @@ const SkillCard = memo<SkillCardProps>(({ skill, index, categoryIndex }) => {
       className={`group relative bg-white/10 backdrop-blur-sm p-4 rounded-2xl shadow-lg hover:shadow-xl border border-white/30 hover:border-white/50 transition-all duration-300 ease-out hover:bg-white/15 transform hover:-translate-y-1 ${
         isInView
           ? "animate-slide-up-mobile opacity-100"
-          : "opacity-0 translate-y-6"
+          : "opacity-0 translate-y-4"
       }`}
       style={{
-        animationDelay: `${Math.min(categoryIndex * 150 + index * 75, 1500)}ms`,
+        animationDelay: `${Math.min(categoryIndex * 50 + index * 30, 1000)}ms`,
+        animationDuration: "0.3s",
         animationFillMode: "forwards",
-        willChange: isInView ? "transform, opacity" : "auto", // Hardware acceleration
-        transform: "translateZ(0)", // Force hardware acceleration
+        willChange: isInView ? "transform, opacity" : "auto",
+        transform: "translate3d(0, 0, 0)", // Better hardware acceleration
+        backfaceVisibility: "hidden",
       }}
     >
       {/* Optimized glow effect - reduced blur for mobile */}
@@ -103,11 +105,11 @@ const SkillCard = memo<SkillCardProps>(({ skill, index, categoryIndex }) => {
               2 * Math.PI * 12 * (1 - (isInView ? skill.level : 0) / 100)
             }`}
             strokeLinecap="round"
-            className="transition-all duration-800 ease-out"
+            className="transition-all duration-600 ease-out"
             style={{
               transitionDelay: `${Math.min(
-                categoryIndex * 150 + index * 75 + 200,
-                1700
+                categoryIndex * 50 + index * 30 + 150,
+                1150
               )}ms`,
             }}
           />
@@ -154,12 +156,12 @@ const SkillCard = memo<SkillCardProps>(({ skill, index, categoryIndex }) => {
         {/* Proficiency bar - simplified animation */}
         <div className="w-full bg-white/20 rounded-full h-1 overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-600 ease-out"
+            className="h-full bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-500 ease-out"
             style={{
               width: isInView ? `${skill.level}%` : "0%",
               transitionDelay: `${Math.min(
-                categoryIndex * 150 + index * 75 + 300,
-                1800
+                categoryIndex * 50 + index * 30 + 200,
+                1200
               )}ms`,
             }}
           />

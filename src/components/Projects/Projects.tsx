@@ -39,14 +39,19 @@ const ProjectSkeleton = () => (
 const ProjectCard = ({ project, idx }: { project: any; idx: number }) => (
   <motion.div
     className="h-full"
-    initial={{ opacity: 0, y: 20 }}
-    whileHover={{ scale: 1.03, y: -5 }}
+    initial={{ opacity: 0, y: 15 }}
+    whileHover={{ scale: 1.02, y: -3 }}
     whileInView={{
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, delay: idx * 0.1 },
+      transition: {
+        duration: 0.4,
+        delay: idx * 0.08,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
     }}
-    viewport={{ once: true, margin: "-50px" }}
+    viewport={{ once: true, margin: "-30px", amount: 0.2 }}
+    style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
     key={`${project.title}-${idx}`}
   >
     <div className="h-full relative group">

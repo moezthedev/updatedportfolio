@@ -77,53 +77,65 @@ const AchievementCollage = () => {
       <div className="relative z-10 max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl md:text-6xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{
+            willChange: "transform, opacity",
+            transform: "translateZ(0)",
+          }}
         >
           <span className="text-white">Achievements</span>
         </motion.h2>
 
         <div className="relative min-h-[500px] md:h-[600px] flex items-center justify-center">
-          {/* Central Medal Element */}
+          {/* Central Medal Element - simplified animation for mobile */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
               <motion.div
                 className="absolute inset-0 rounded-full border-4 border-yellow-400/30"
                 animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute inset-4 rounded-full border-4 border-yellow-400/50"
-                animate={{
                   scale: [1, 1.05, 1],
-                  rotate: [0, -5, 0],
                 }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 1,
                 }}
+                style={{ willChange: "transform" }}
+              />
+              <motion.div
+                className="absolute inset-4 rounded-full border-4 border-yellow-400/50"
+                animate={{
+                  scale: [1, 1.03, 1],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                }}
+                style={{ willChange: "transform" }}
               />
               <motion.div
                 className="absolute w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg"
                 animate={{
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1.03, 1],
                   rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "linear",
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                  rotate: {
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
                 }}
+                style={{ willChange: "transform" }}
               >
                 <span className="text-2xl md:text-4xl font-bold text-gray-900">
                   #1
@@ -150,15 +162,19 @@ const AchievementCollage = () => {
                 opacity: 1,
               }}
               whileHover={{
-                scale: 1.05,
+                scale: 1.03,
                 rotate: 0,
-                boxShadow: "0 25px 50px -12px rgba(255, 255, 255, 0.25)",
+                boxShadow: "0 20px 40px -10px rgba(255, 255, 255, 0.25)",
               }}
               transition={{
                 type: "spring",
-                stiffness: 150,
-                damping: 12,
-                delay: ach.id * 0.3,
+                stiffness: 200,
+                damping: 15,
+                delay: ach.id * 0.2,
+              }}
+              style={{
+                willChange: "transform, opacity",
+                transform: "translateZ(0)",
               }}
               onClick={() => setSelected(ach)}
             >

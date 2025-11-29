@@ -60,6 +60,11 @@ function Page() {
       role: "Manager AI",
       company: "CareCloud",
     },
+    {
+      name: "Nuzair Zia",
+      role: "Lead Software Engineer",
+      company: "Telenor",
+    },
   ];
   return (
     <>

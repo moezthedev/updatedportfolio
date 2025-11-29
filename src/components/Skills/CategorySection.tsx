@@ -31,12 +31,12 @@ const CategorySection = memo<CategorySectionProps>(
         ([entry]) => {
           if (entry.isIntersecting) {
             // Reduced delay for mobile performance
-            setTimeout(() => setIsInView(true), categoryIndex * 100);
+            setTimeout(() => setIsInView(true), categoryIndex * 50);
           }
         },
         {
-          threshold: 0.1,
-          rootMargin: "50px", // Start animation earlier
+          threshold: 0.05,
+          rootMargin: "80px", // Start animation earlier for smoother experience
         }
       );
 
@@ -54,10 +54,12 @@ const CategorySection = memo<CategorySectionProps>(
           isInView ? "animate-fade-in-mobile" : "opacity-0"
         }`}
         style={{
-          animationDelay: `${categoryIndex * 100}ms`,
+          animationDelay: `${categoryIndex * 50}ms`,
+          animationDuration: "0.3s",
           animationFillMode: "forwards",
           willChange: isInView ? "opacity, transform" : "auto",
-          transform: "translateZ(0)", // Force hardware acceleration
+          transform: "translate3d(0, 0, 0)", // Better hardware acceleration
+          backfaceVisibility: "hidden",
         }}
       >
         {/* Category Header */}
