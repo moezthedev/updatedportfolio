@@ -31,6 +31,7 @@ interface Project {
   githubLink?: string;
   colabLink?: string;
   liveDemoLink?: string;
+  youtubeLink?: string;
   category: any;
 }
 
@@ -264,11 +265,75 @@ const projects: Project[] = [
     category: "ML",
   },
   {
+    title: "Tiny LLM from Scratch",
+    technologies: ["PyTorch", "Transformers", "Deep Learning"],
+    description:
+      "Building a tiny Large Language Model from scratch, implementing transformer architecture, attention mechanisms, and training pipelines for understanding foundational LLM concepts.",
+    category: "ML",
+  },
+  {
+    title: "Time Series Forecasting on House Electricity Use",
+    technologies: ["Time Series Analysis", "LSTM", "PyTorch"],
+    description:
+      "Time series forecasting model to predict household electricity consumption patterns using historical data, implementing LSTM networks for accurate energy usage predictions.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/time-series-forecasting-on-house-electricity-use",
+    category: "ML",
+  },
+  {
+    title: "RSNA 2024 Lumbar Spine Degenerative Classification",
+    technologies: ["Computer Vision", "CNN", "Medical Imaging"],
+    description:
+      "Deep learning model for classifying lumbar spine degenerative conditions from medical imaging data, participating in RSNA 2024 competition with advanced CNN architectures.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/rsna-2024-lumbar-spine-degenerative-classification",
+    category: "ML",
+  },
+  {
+    title: "Histopathologic Cancer Detection Using CNN",
+    technologies: ["CNN", "Medical Imaging", "Histopathology"],
+    description:
+      "Convolutional Neural Network model for detecting cancer in histopathologic images, analyzing tissue samples to identify malignant patterns with high accuracy.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/histopathologic-cancer-detection-using-cnn",
+    category: "ML",
+  },
+  {
+    title: "Fine-tune Tiny Llama on Medical Instructions",
+    technologies: ["LLM Fine-tuning", "Medical NLP", "TinyLlama"],
+    description:
+      "Fine-tuning TinyLlama model on medical instruction datasets to create a specialized AI assistant for healthcare-related queries and medical guidance.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/inference-finetune-tiny-llama-on-medical-instruct",
+    category: "ML",
+  },
+  {
+    title: "Fine Tune ViT on NIH Dataset to Classify 14 Conditions",
+    technologies: [
+      "Vision Transformer",
+      "Medical Imaging",
+      "Multi-label Classification",
+    ],
+    description:
+      "Fine-tuning Vision Transformer model on NIH Chest X-ray dataset for classifying 14 different thoracic conditions from medical images.",
+    colabLink:
+      "https://www.kaggle.com/code/moezahsan1/fine-tune-vit-on-nih-chest-x-raydataset",
+    category: "ML",
+  },
+  {
+    title: "Data Scraping Using Scrapy of Ecommerce Website",
+    technologies: ["Scrapy", "Python", "Web Scraping"],
+    description:
+      "Building a robust web scraping solution using Scrapy framework to extract product data, prices, and reviews from ecommerce websites for data analysis and market research.",
+    category: "ML",
+  },
+  {
     title: "Automated Research Assistant Agent",
     technologies: ["Python", "LangChain", "OpenAI API", "Streamlit"],
     description:
       "An intelligent AI agent that automates research tasks by gathering, analyzing, and synthesizing information from multiple sources. Features natural language querying, source verification, and comprehensive report generation.",
     liveDemoLink: "https://research-assistant-agent.streamlit.app/",
+    youtubeLink: "https://youtu.be/EvQ-CH4qIlA",
     category: "GenAI and AI Agent Apps",
   },
   {
@@ -277,6 +342,7 @@ const projects: Project[] = [
     description:
       "A sophisticated AI agent that automatically detects and corrects data quality issues including missing values, outliers, duplicates, and inconsistencies. Learns from data patterns to improve cleaning accuracy over time.",
     liveDemoLink: "https://data-cleaner-agent.herokuapp.com/",
+    youtubeLink: "https://youtu.be/kJovFlGrQEg",
     category: "GenAI and AI Agent Apps",
   },
   {
@@ -285,62 +351,15 @@ const projects: Project[] = [
     description:
       "An AI-powered travel planning agent that creates personalized itineraries based on user preferences, budget, and real-time data. Includes flight, hotel, and activity recommendations with dynamic adjustments.",
     liveDemoLink: "https://smart-travel-planner.netlify.app/",
+    youtubeLink: "https://youtu.be/d2Yg8khIoTA",
     category: "GenAI and AI Agent Apps",
   },
   {
-    title: "Customer Support Agent",
-    technologies: ["Langchain", "NLP"],
+    title: "Gen AI YouTube Video Summarizer",
+    technologies: ["Python", "OpenAI API", "YouTube API", "NLP"],
     description:
-      "An advanced customer support AI agent capable of handling complex queries, providing personalized responses, and escalating issues intelligently. Features sentiment analysis and multi-language support.",
-    liveDemoLink: "https://customer-support-agent.vercel.app/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "Legal / Policy Compliance Agent",
-    technologies: ["Python", "Legal NLP", "Compliance APIs", "Langchain"],
-    description:
-      "An AI agent specialized in legal and policy compliance monitoring. Automatically reviews documents, identifies compliance gaps, and suggests remediation strategies with regulatory updates tracking.",
-    liveDemoLink: "https://legal-compliance-agent.com/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "Code PR Review Agent",
-    technologies: ["Langgraph", "GitHub API", "Code Analysis", "LLMs"],
-    description:
-      "An intelligent code review agent that analyzes pull requests for bugs, security vulnerabilities, code quality issues, and best practices. Provides detailed feedback and suggestions for improvement.",
-    liveDemoLink: "https://code-review-agent.github.io/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "Medical Code Agent",
-    technologies: ["Python", "Medical NLP", "ICD-10", "Healthcare APIs"],
-    description:
-      "A specialized AI agent for medical coding and documentation. Automatically assigns appropriate medical codes, ensures compliance with healthcare regulations, and assists with clinical documentation.",
-    liveDemoLink: "https://medical-code-agent.health/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "Smart Meeting Scheduling Agent",
-    technologies: ["Langgraph", "Calendar APIs", "AI Scheduling", "Node.js"],
-    description:
-      "An intelligent meeting scheduling agent that finds optimal times for all participants, considers preferences and time zones, and automatically sends invites with smart conflict resolution.",
-    liveDemoLink: "https://smart-meeting-scheduler.com/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "AI Agent Investment Advisor",
-    technologies: ["Python", "Financial APIs", "Risk Analysis", "ML Models"],
-    description:
-      "A comprehensive investment advisory AI agent that analyzes market data, assesses risk tolerance, and provides personalized investment recommendations with portfolio optimization strategies.",
-    liveDemoLink: "https://ai-investment-advisor.finance/",
-    category: "GenAI and AI Agent Apps",
-  },
-  {
-    title: "Upwork Proposal Writer",
-    technologies: ["Python", "NLP", "Proposal Templates", "AI Writing"],
-    description:
-      "An AI-powered proposal writing agent that creates compelling, customized proposals for Upwork gigs. Analyzes job requirements and generates persuasive content with competitive bidding strategies.",
-    liveDemoLink: "https://upwork-proposal-writer.netlify.app/",
+      "An AI-powered tool that automatically summarizes YouTube videos using advanced natural language processing. Extracts key points, generates concise summaries, and provides intelligent insights from video content.",
+    youtubeLink: "https://youtu.be/1mCvN1FC1p8",
     category: "GenAI and AI Agent Apps",
   },
 ];
