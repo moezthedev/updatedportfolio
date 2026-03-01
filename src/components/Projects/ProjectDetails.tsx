@@ -356,10 +356,26 @@ const projects: Project[] = [
   },
   {
     title: "Gen AI YouTube Video Summarizer",
-    technologies: ["Python", "OpenAI API", "YouTube API", "NLP"],
+    technologies: ["Python", "Llama3.2", "YouTube API", "NLP"],
     description:
       "An AI-powered tool that automatically summarizes YouTube videos using advanced natural language processing. Extracts key points, generates concise summaries, and provides intelligent insights from video content.",
     youtubeLink: "https://youtu.be/1mCvN1FC1p8",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "Gen AI Legal Clause Simplifier",
+    technologies: ["Python", "LangChain", "LLMs", "Prompt Engineering"],
+    description:
+      "A GenAI application that simplifies complex legal clauses into clear, plain-language explanations to improve readability and understanding for non-technical users.",
+    youtubeLink: "https://youtu.be/EK926iprKgM",
+    category: "GenAI and AI Agent Apps",
+  },
+  {
+    title: "AI Agent Smart Meeting Scheduler",
+    technologies: ["Python", "LangGraph", "Human-in-the-Loop", "AI Agents"],
+    description:
+      "An AI agent-based smart meeting scheduler built with LangGraph and a human-in-the-loop mechanism to coordinate availability, resolve scheduling conflicts, and finalize meeting plans with user oversight.",
+    youtubeLink: "https://youtu.be/mwkK5IXn9F0",
     category: "GenAI and AI Agent Apps",
   },
 ];
