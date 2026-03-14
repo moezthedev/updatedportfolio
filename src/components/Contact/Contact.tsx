@@ -115,6 +115,17 @@ const ContactForm: React.FC = memo(() => {
     [errors]
   );
 
+  const handleReset = useCallback(() => {
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setErrors({});
+    setSubmissionStatus("idle");
+  }, []);
+
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
@@ -151,19 +162,8 @@ const ContactForm: React.FC = memo(() => {
         setTimeout(() => setSubmissionStatus("idle"), 5000);
       }
     },
-    [formData, validateForm]
+    [formData, validateForm, handleReset]
   );
-
-  const handleReset = useCallback(() => {
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setErrors({});
-    setSubmissionStatus("idle");
-  }, []);
 
   const inputClasses =
     "w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white/15";

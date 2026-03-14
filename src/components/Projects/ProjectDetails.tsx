@@ -336,7 +336,6 @@ const projects: Project[] = [
     youtubeLink: "https://youtu.be/EvQ-CH4qIlA",
     category: "GenAI and AI Agent Apps",
   },
-  ,
   {
     title: "AI Chatbot Agent",
     technologies: ["Python", "LangGraph", "LangSmith", "Prompt Engineering"],
