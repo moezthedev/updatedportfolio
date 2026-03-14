@@ -49,7 +49,7 @@ const ContactForm: React.FC = memo(() => {
           setIsInView(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -112,7 +112,7 @@ const ContactForm: React.FC = memo(() => {
         }));
       }
     },
-    [errors]
+    [errors],
   );
 
   const handleReset = useCallback(() => {
@@ -142,9 +142,9 @@ const ContactForm: React.FC = memo(() => {
 
         // Create mailto link as fallback
         const mailtoLink = `mailto:moizahsan5@gmail.com?subject=${encodeURIComponent(
-          formData.subject
+          formData.subject,
         )}&body=${encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
         )}`;
 
         window.location.href = mailtoLink;
@@ -162,7 +162,7 @@ const ContactForm: React.FC = memo(() => {
         setTimeout(() => setSubmissionStatus("idle"), 5000);
       }
     },
-    [formData, validateForm, handleReset]
+    [formData, validateForm, handleReset],
   );
 
   const inputClasses =
