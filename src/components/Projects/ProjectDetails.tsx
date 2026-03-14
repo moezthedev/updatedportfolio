@@ -336,6 +336,15 @@ const projects: Project[] = [
     youtubeLink: "https://youtu.be/EvQ-CH4qIlA",
     category: "GenAI and AI Agent Apps",
   },
+  ,
+  {
+    title: "AI Chatbot Agent",
+    technologies: ["Python", "LangGraph", "LangSmith", "Prompt Engineering"],
+    description:
+      "AI chatbot agent with memory of past conversations, built using LangGraph. Uses tools such as search, stock prices, calculator, and RAG documents, with observability via LangSmith.",
+    youtubeLink: "https://youtu.be/fYSw_eLRfqc",
+    category: "GenAI and AI Agent Apps",
+  },
   {
     title: "AI Data Cleaner Agent",
     technologies: ["Python", "Langchain", "Scikit-learn", "AutoML"],
