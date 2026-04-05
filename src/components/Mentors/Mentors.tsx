@@ -172,7 +172,7 @@ const MentorCard = memo(
         </div>
       </motion.div>
     );
-  }
+  },
 );
 
 MentorCard.displayName = "MentorCard";
@@ -236,30 +236,6 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl animate-pulse"
             style={{ animationDelay: "4s" }}
           />
-        </div>
-
-        {/* Animated particles - reduced for mobile performance */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
-              animate={{
-                y: [0, -100, 0],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: "100%",
-                willChange: "transform, opacity",
-              }}
-            />
-          ))}
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
@@ -378,7 +354,7 @@ const MentorTributeSlider: React.FC<MentorTributeProps> = memo(
         `}</style>
       </section>
     );
-  }
+  },
 );
 
 MentorTributeSlider.displayName = "MentorTributeSlider";

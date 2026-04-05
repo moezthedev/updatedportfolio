@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
-import Particle from "@/components/Particle/Particle";
 import TypingEffect from "@/components/Typewriter/Typewriter";
 import ProgrammerImg from "@/app/assets/programmer.png";
 import Downwardbtn from "@/components/DownButton/DownButton";
 import { motion } from "framer-motion";
-import MatrixRain from "@/components/MatrixRain/MatrixRain";
 
 const Header = () => {
   const headingVariants = {
@@ -17,15 +15,13 @@ const Header = () => {
   };
 
   return (
-    <div className="relative overflow-hidden pt-10">
+    <div className="relative overflow-hidden pt-10 bg-gradient-to-t from-tertiary via-primary to-secondary">
       {/* faint code rain */}
 
       {/* preserve your exact gradient */}
-      <div className="bg-gradient-to-t from-tertiary via-primary to-secondary">
-        <Particle />
+      <div>
         <Navbar />
       </div>
-      <MatrixRain rainColors={["rgba(255,255,255,0.1)"]} />
       {/* main content on top */}
       <div className="relative z-10 p-[60px] md:p-[80px] flex flex-col md:flex-row items-center">
         <div className="md:w-1/2">

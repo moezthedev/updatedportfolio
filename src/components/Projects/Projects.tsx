@@ -1,14 +1,9 @@
 "use client";
-import React, { useState, useMemo, lazy, Suspense, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Element } from "react-scroll";
 import { projects } from "./ProjectDetails"; // Import your project details
-
-{
-  /* Lazy load components */
-}
-const Particle = lazy(() => import("@/components/Particle/Particle"));
 
 // Helper function to extract YouTube video ID
 const getYoutubeVideoId = (url: string): string => {
@@ -288,11 +283,6 @@ const ShowcaseProjects: React.FC = () => {
   return (
     <>
       <Element name="project" id="project" />
-
-      {/* Particle background */}
-      <Suspense fallback={<div className="h-24 bg-primary" />}>
-        <Particle />
-      </Suspense>
 
       {/* Header section */}
       <header className="bg-primary">
