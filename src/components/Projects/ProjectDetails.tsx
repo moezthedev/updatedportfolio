@@ -328,14 +328,14 @@ const projects: Project[] = [
     category: "ML",
   },
   {
-    title: "Automated Research Assistant Agent",
-    technologies: ["Python", "LangChain", "OpenAI API", "Streamlit"],
+    title: "AI Agent Smart Meeting Scheduler",
+    technologies: ["Python", "LangGraph", "Human-in-the-Loop", "AI Agents"],
     description:
-      "An intelligent AI agent that automates research tasks by gathering, analyzing, and synthesizing information from multiple sources. Features natural language querying, source verification, and comprehensive report generation.",
-    liveDemoLink: "https://research-assistant-agent.streamlit.app/",
-    youtubeLink: "https://youtu.be/EvQ-CH4qIlA",
+      "An AI agent-based smart meeting scheduler built with LangGraph and a human-in-the-loop mechanism to coordinate availability, resolve scheduling conflicts, and finalize meeting plans with user oversight.",
+    youtubeLink: "https://youtu.be/mwkK5IXn9F0",
     category: "GenAI and AI Agent Apps",
   },
+
   {
     title: "AI Chatbot Agent",
     technologies: ["Python", "LangGraph", "LangSmith", "Prompt Engineering"],
@@ -379,11 +379,12 @@ const projects: Project[] = [
     category: "GenAI and AI Agent Apps",
   },
   {
-    title: "AI Agent Smart Meeting Scheduler",
-    technologies: ["Python", "LangGraph", "Human-in-the-Loop", "AI Agents"],
+    title: "Automated Research Assistant Agent",
+    technologies: ["Python", "LangChain", "OpenAI API", "Streamlit"],
     description:
-      "An AI agent-based smart meeting scheduler built with LangGraph and a human-in-the-loop mechanism to coordinate availability, resolve scheduling conflicts, and finalize meeting plans with user oversight.",
-    youtubeLink: "https://youtu.be/mwkK5IXn9F0",
+      "An intelligent AI agent that automates research tasks by gathering, analyzing, and synthesizing information from multiple sources. Features natural language querying, source verification, and comprehensive report generation.",
+    liveDemoLink: "https://research-assistant-agent.streamlit.app/",
+    youtubeLink: "https://youtu.be/EvQ-CH4qIlA",
     category: "GenAI and AI Agent Apps",
   },
 ];
